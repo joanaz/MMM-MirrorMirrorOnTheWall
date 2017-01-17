@@ -9,108 +9,61 @@
 
 Module.register('MMM-MirrorMirrorOnTheWall', {
 
-  defaults: {
-    // recognition interval in ms, default to 8 hours
-    interval: 8 * 60 * 60 * 1000,
-    // smile time in seconds
-    smileLength: 5,
-    // use pi camera by default
-    usePiCam: true,
-    // test running time in seconds
-    testRunTime: 60
-  },
+  defaults: {},
 
   start: function() {
     Log.info('Starting module: ' + this.name);
-    var self = this
-    this.message = 'Starting Alexa...'
-    this.gifUrl = ''
-    this.clearDom = false
-    this.startAlexa()
 
-    setTimeout(function() {
-      self.start()
-    }, this.config.interval);
+    this.clearDom = false
+
+    this.sendSocketNotification('ALEXA_START', {});
   },
 
   getStyles: function() {
-    return ["MMM-Alexa.css"]
-  },
-
-  startAlexa: function() {
-    Log.info("Start Alexa.");
-
-    this.sendSocketNotification('START_ALEXA', this.config);
+    return ["MMM-MirrorMirrorOnTheWall.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"]
   },
 
   // Override socket notification handler.
   socketNotificationReceived: function(notification, payload) {
-    var self = this
-    var endTest = false
+    Log.info(this.name + "received a socket notification:\n" + notification);
+    Log.info(payload);
 
     if (notification === "RESULT") {
-      var state = payload.state;
-      var html = "";
-      if (state.images) {
-        resizer = "http://i.embed.ly/1/image/resize?key=cb0afdc785b947b0b862d215349fe973&height=300&grow=true&url=";
-        htmlImages = '<div class="row">';
-
-        for (i = 0; i < state.images.length; i++) {
-          encodedUrl = encodeURIComponent(state.images[i].unescapedUrl);
-          htmlImages += '<div class="image-holder">\
-                            <img src="' + resizer + encodedUrl + '">\
-                        </div>';
-        }
-
-        htmlImages += '</div>';
-      } else {
-        htmlImages = "";
-      }
-
-      if (state.displayText) {
-        html = "<h1>" + state.displayText + "</h1>";
-      }
-
-
+      this.result = payload;
       this.updateDom()
     }
-
-
-    //   if (endTest) {
-    //   setTimeout(function() {
-    //     self.clearDom = true;
-    //     self.updateDom()
-    //   }, 1000);
-    // }
   },
 
   getDom: function() {
     wrapper = document.createElement("div");
     wrapper.className = 'thin large bright';
 
-    var h = document.createElement("p")
-    var t = document.createTextNode(this.message);
-    h.appendChild(t)
-    wrapper.appendChild(h)
-
-    if (this.gitUrl != '') {
-      var img = document.createElement("img");
-      img.src = this.gifUrl
-
-      // image.width = this.config.imageSize.toString();
-      // image.height = this.config.imageSize.toString();
-
-      wrapper.appendChild(img);
-    }
-
-    progressBar = document.createElement("div")
-    progressBar.id = "progress-bar"
-    progressBar.style.width = this.progressBarWidth
-    wrapper.appendChild(progressBar)
-
     if (this.clearDom) {
       while (wrapper.firstChild) {
         wrapper.removeChild(wrapper.firstChild);
+      }
+    } else {
+      if (this.result) {
+        if (this.result.images) {
+          var row = document.createElement("div")
+          row.className = "row"
+
+          for (var i = 0; i < this.result.images.length; i++) {
+            var img = document.createElement("img");
+            img.src = this.result.images[i].url
+            row.appendChild(img)
+          }
+          wrapper.appendChild(row)
+        }
+
+        if (this.result.displayText) {
+          var h1 = document.createElement('h1')
+          h1.className = "animated fadeIn"
+
+          var t = document.createTextNode(this.result.displayText)
+          h1.appendChild(t)
+          wrapper.appendChild(h1)
+        }
       }
     }
 
