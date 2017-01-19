@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/paviro/MMM-Facial-Recognition#readme",
   "dependencies": {
-    "aws-iot-device-sdk": "latest",
-    "animate.css": "latest"
+    "aws-iot-device-sdk": "latest"
   }
 }

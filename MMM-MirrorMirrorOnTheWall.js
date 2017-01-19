@@ -13,9 +13,6 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
 
   start: function() {
     Log.info('Starting module: ' + this.name);
-
-    this.clearDom = false
-
     this.sendSocketNotification('ALEXA_START', {});
   },
 
@@ -31,6 +28,18 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
     if (notification === "RESULT") {
       this.result = payload;
       this.updateDom()
+    } else if (notification === "MODULE") {
+      MM.getModules.withClass(payload.moduleName).enumerate(function(module) {
+        if (payload.turnOn) {
+          module.show(1000, function() {
+            Log.log(module.name + ' is shown.');
+          });
+        } else {
+          module.hide(1000, function() {
+            Log.log(module.name + ' is hidden.');
+          });
+        }
+      });
     }
   },
 
@@ -38,32 +47,26 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
     wrapper = document.createElement("div");
     wrapper.className = 'thin large bright';
 
-    if (this.clearDom) {
-      while (wrapper.firstChild) {
-        wrapper.removeChild(wrapper.firstChild);
+    if (this.result) {
+      if (this.result.images) {
+        var row = document.createElement("div")
+        row.className = "row"
+
+        for (var i = 0; i < this.result.images.length; i++) {
+          var img = document.createElement("img");
+          img.src = this.result.images[i].url
+          row.appendChild(img)
+        }
+        wrapper.appendChild(row)
       }
-    } else {
-      if (this.result) {
-        if (this.result.images) {
-          var row = document.createElement("div")
-          row.className = "row"
 
-          for (var i = 0; i < this.result.images.length; i++) {
-            var img = document.createElement("img");
-            img.src = this.result.images[i].url
-            row.appendChild(img)
-          }
-          wrapper.appendChild(row)
-        }
+      if (this.result.displayText) {
+        var h1 = document.createElement('h1')
+        h1.className = "animated fadeIn"
 
-        if (this.result.displayText) {
-          var h1 = document.createElement('h1')
-          h1.className = "animated fadeIn"
-
-          var t = document.createTextNode(this.result.displayText)
-          h1.appendChild(t)
-          wrapper.appendChild(h1)
-        }
+        var t = document.createTextNode(this.result.displayText)
+        h1.appendChild(t)
+        wrapper.appendChild(h1)
       }
     }
 

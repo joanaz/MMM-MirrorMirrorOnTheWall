@@ -4,7 +4,7 @@ const awsIot = require('aws-iot-device-sdk');
 var app = {}
 app.TOPIC_IMAGES = "MagicMirror:new-images"
 app.TOPIC_TEXT = "MagicMirror:new-text"
-app.LAST_TIMESTAMP = 0
+app.TOPIC_MODULE = "MagicMirror:change-module"
 
 // Setup our AWS IoT device and receive messages
 app.setup = function() {
@@ -23,10 +23,15 @@ app.setup = function() {
   console.log("Attempt to connect to AWS ");
   app.device.on("connect", function() {
     console.log("Connected to AWS ");
+
     app.device.subscribe(app.TOPIC_TEXT);
-    app.device.subscribe(app.TOPIC_IMAGES);
     console.log("Subscribed: " + app.TOPIC_TEXT);
+
+    app.device.subscribe(app.TOPIC_IMAGES);
     console.log("Subscribed: " + app.TOPIC_IMAGES);
+
+    app.device.subscribe(app.TOPIC_MODULE);
+    console.log("Subscribed: " + app.TOPIC_MODULE);
   });
 
   // Listeners
