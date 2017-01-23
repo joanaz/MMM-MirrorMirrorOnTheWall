@@ -22,7 +22,7 @@ app.setup = function() {
    */
   console.log("Attempt to connect to AWS ");
   app.device.on("connect", function() {
-    console.log("Connected to AWS ");
+    console.log("Connected to AWS IoT");
 
     app.device.subscribe(app.TOPIC_TEXT);
     console.log("Subscribed: " + app.TOPIC_TEXT);
