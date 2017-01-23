@@ -17,29 +17,37 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
   },
 
   getStyles: function() {
-    return ["MMM-MirrorMirrorOnTheWall.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"]
+    return [
+      "MMM-MirrorMirrorOnTheWall.css",
+      "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    ]
   },
 
   // Override socket notification handler.
   socketNotificationReceived: function(notification, payload) {
     Log.info(this.name + "received a socket notification:\n" + notification);
-    Log.info(payload);
 
     if (notification === "RESULT") {
+
       this.result = payload;
       this.updateDom()
+
     } else if (notification === "MODULE") {
-      MM.getModules.withClass(payload.moduleName).enumerate(function(module) {
-        if (payload.turnOn) {
-          module.show(1000, function() {
-            Log.log(module.name + ' is shown.');
-          });
-        } else {
-          module.hide(1000, function() {
-            Log.log(module.name + ' is hidden.');
-          });
+
+      MM.getModules().enumerate(function(module) {
+        if (module.name === payload.moduleName) {
+          if (payload.turnOn) {
+            module.show(1000, function() {
+              Log.log(module.name + ' is shown.');
+            });
+          } else {
+            module.hide(1000, function() {
+              Log.log(module.name + ' is hidden.');
+            });
+          }
         }
       });
+
     }
   },
 
