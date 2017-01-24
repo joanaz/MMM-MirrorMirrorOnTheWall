@@ -1,24 +1,28 @@
 {
   "name": "Magic-Mirror-Module-Mirror-Mirror-On-The-Wall",
   "version": "1.0.0",
-  "description": "Alexa voice control module for the Magic Mirror.",
+  "description": "Communication channel for Alexa and the Magic Mirror.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paviro/MMM-Facial-Recognition"
+    "url": "git+https://github.com/joanaz/MMM-MirrorMirrorOnTheWall"
   },
   "keywords": [
     "magic mirror",
     "smart mirror",
-    "Facial expression recognition",
-    "module"
+    "Alexa",
+    "module",
+    "AWS IoT",
+    "device gateway",
+    "Alexa skill",
+    "Google Search"
   ],
-  "author": "Paul-Vincent Roll",
-  "contributors": "https://github.com/paviro/MMM-Facial-Recognition/graphs/contributors",
+  "author": "Joanna Zhang",
+  "contributors": "https://github.com/joanaz/MMM-MirrorMirrorOnTheWall/graphs/contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/paviro/MMM-Facial-Recognition/issues"
+    "url": "https://github.com/joanaz/MMM-MirrorMirrorOnTheWall/issues"
   },
-  "homepage": "https://github.com/paviro/MMM-Facial-Recognition#readme",
+  "homepage": "https://github.com/joanaz/MMM-MirrorMirrorOnTheWall#readme",
   "dependencies": {
     "aws-iot-device-sdk": "latest"
   }
