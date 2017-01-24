@@ -54,6 +54,8 @@ The text in {} will be displayed on Magic Mirror in bold.
 
 ### Display images
 
+The text in {} will be searched by Google Image Search API, and the returned images will be displayed on Magic Mirror, with the text.
+
 - `"find {snow white}"`
 - `"find images of {hunter}"`
 - `"find pictures of {dwarfs}"`
@@ -65,7 +67,6 @@ The text in {} will be displayed on Magic Mirror in bold.
 - `"display pictures of {dwarfs}"`
 - `"display images of {dwarfs}"`
 
-The text in {} will be searched by Google Image Search API, and the returned images will be displayed on Magic Mirror, with the text.
 
 ### Turn on/off Magic Mirror Modules
 
