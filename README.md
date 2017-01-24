@@ -45,24 +45,25 @@ If you have setup the [complementary Alexa skill](https://github.com/joanaz/Mirr
 
 ### Display text
 
-- `say {hello}`
-- `say {good morning}`
-- `say {you are the fairest of them all}`
-
 The text in {} will be displayed on Magic Mirror in bold.
+
+- `"say {hello}"`
+- `"say {good morning}"`
+- `"say {you are the fairest of them all}"`
+
 
 ### Display images
 
-- `find {snow white}`
-- `find images of {hunter}`
-- `find pictures of {dwarfs}`
-- `show me {snow white}`
-- `show me pictures of {hunter}`
-- `show me images of {dwarfs}`
-- `show pictures of {hunter}`
-- `show images of {snow white}`
-- `display pictures of {dwarfs}`
-- `display images of {dwarfs}`
+- `"find {snow white}"`
+- `"find images of {hunter}"`
+- `"find pictures of {dwarfs}"`
+- `"show me {snow white}"`
+- `"show me pictures of {hunter}"`
+- `"show me images of {dwarfs}"`
+- `"show pictures of {hunter}"`
+- `"show images of {snow white}"`
+- `"display pictures of {dwarfs}"`
+- `"display images of {dwarfs}"`
 
 The text in {} will be searched by Google Image Search API, and the returned images will be displayed on Magic Mirror, with the text.
 
@@ -71,13 +72,13 @@ The text in {} will be searched by Google Image Search API, and the returned ima
 To turn on/off a Magic Mirror Module, it has to be installed and configured in the main project already. You also have to map its official module name to a transcribable spoken name in ModuleNames.json. For example, ["MMM-Globe"](https://github.com/LukeSkywalker92/MMM-Globe) maps to "globe", ["currentweather"](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather) maps to "current weather".
 
 To turn on a Magic Mirror Module, say:
-- `start {newsfeed}`
-- `start {compliments}`
-- `turn on {current weather}`
-- `open {smile test}`
+- `"start {newsfeed}"`
+- `"start {compliments}"`
+- `"turn on {current weather}"`
+- `"open {smile test}"`
 
 To turn off a Magic Mirror Module, say:
-- `close {newsfeed}`
-- `close {compliments}`
-- `turn off {current weather}`
-- `finish {smile test}`
+- `"close {newsfeed}"`
+- `"close {compliments}"`
+- `"turn off {current weather}"`
+- `"finish {smile test}"`
