@@ -41,7 +41,7 @@ The entry in config.js can look like the following. (NOTE: You only have to add 
 
 ## Usage
 
-If you have setup the [complementary Alexa skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) as instructed in its readme, you should be able to invoke it by saying `mirror mirror on the wall`. Next you can say any of the following commands to trigger different actions on the Magic Mirror.
+If you have setup the [complementary Alexa skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) as instructed in its readme, you should be able to invoke it by saying `"mirror mirror on the wall"`. Next you can say any of the following commands to trigger different actions on the Magic Mirror.
 
 ### Display text
 
@@ -68,7 +68,7 @@ The text in {} will be searched by Google Image Search API, and the returned ima
 
 ### Turn on/off Magic Mirror Modules
 
-To turn on/off a Magic Mirror Module, it has to be installed and configured in the main project already. You also have to map its official module name to a transcribable spoken name in ModuleNames.json. For example, Module [MMM-Globe](https://github.com/LukeSkywalker92/MMM-Globe) maps to "globe", [currentweather](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather) maps to "current weather".
+To turn on/off a Magic Mirror Module, it has to be installed and configured in the main project already. You also have to map its official module name to a transcribable spoken name in ModuleNames.json. For example, ["MMM-Globe"](https://github.com/LukeSkywalker92/MMM-Globe) maps to "globe", ["currentweather"](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather) maps to "current weather".
 
 To turn on a Magic Mirror Module, say:
 - `start {newsfeed}`
