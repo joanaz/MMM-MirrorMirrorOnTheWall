@@ -41,7 +41,7 @@ The entry in config.js can look like the following. (NOTE: You only have to add 
 
 ## Usage
 
-If you have setup the [complementary Alexa skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) as instructed in its readme, you should be able to invoke it by saying "mirror mirror on the wall". Next you can say any of the following commands to trigger different actions on the Magic Mirror.
+If you have setup the [complementary Alexa skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) as instructed in its readme, you should be able to invoke it by saying `mirror mirror on the wall`. Next you can say any of the following commands to trigger different actions on the Magic Mirror.
 
 ### Display text
 
