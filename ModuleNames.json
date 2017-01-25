@@ -1,13 +1,12 @@
 {
   "alert": "alert",
+  "calendar": "calendar",
   "clock": "clock",
   "compliments": "compliments",
   "current weather": "currentweather",
   "weather forecast": "weatherforecast",
-  "newsfeed": "newsfeed",
-  "iframe": "iFrame",
+  "news feed": "newsfeed",
   "facial recognition": "MMM-Facial-Recognition",
-  "mirror mirror on the wall": "MMM-MirrorMirrorOnTheWall",
   "smile test": "MMM-Smile",
   "globe": "MMM-Globe",
   "jokes": "MMM-jokes"
