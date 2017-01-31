@@ -13,8 +13,9 @@
     "module",
     "AWS IoT",
     "device gateway",
-    "Alexa skill",
-    "Google Search"
+    "Alexa",
+    "skill",
+    "Google Search Engine"
   ],
   "author": "Joanna Zhang",
   "contributors": "https://github.com/joanaz/MMM-MirrorMirrorOnTheWall/graphs/contributors",
