@@ -1,6 +1,6 @@
 # MMM-MirrorMirrorOnTheWall
 
-This is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror). It uses AWS IoT Device Gateway to receive commands from Alexa, then displays text/images on the Magic Mirror, and turn on/off Magic Mirror Modules according to the commands.
+This is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror). It uses AWS IoT Device Gateway to receive commands from Alexa, then displays text/images/video on the Magic Mirror, and turn on/off Magic Mirror Modules according to the commands.
 
 You have to setup and install [MirrorMirrorOnTheWall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) before using this module.
 
@@ -16,7 +16,7 @@ You need to setup an AWS IoT Device, and save the credentials locally in this re
 5. choose __Linux/OSX__ platform, and __Node.JS__
 6. give your device a name
 7. download credentials and run the start.sh script, which will generate a root-CA.crt
-8. create a folder called __certs__ in your local copy of this repo
+8. create a folder called __certs__ inside the __src__ folder
 9. place all the credentials in the __certs__ folder
 10. open MirrorMirror.js, replace the __keyPath__, __certPath__, and __caPath__ to your own
 
@@ -69,6 +69,21 @@ The text in {} will be searched by Google Image Search API, and the returned ima
 - `"show images of {snow white}"`
 - `"display pictures of {dwarfs}"`
 - `"display images of {dwarfs}"`
+
+### Display video
+
+The text in {} will be searched by Youtube Data API, and the returned video will be displayed on Magic Mirror, with the text.
+
+- `"show me how to {make slime}"`
+- `"show me video of {movie trailer}"`
+- `"show me a video of {cats}"`
+- `"show video of {volcanoes}"`
+- `"show a video of {birds}"`
+- `"display video of {animals}"`
+- `"display a video of {rattle snakes}"`
+- `"find video of {cat}"`
+- `"find video of {cat and dog}"`
+- `"find a video of {snow white}"`
 
 ### Turn on/off Magic Mirror Modules
 
