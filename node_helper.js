@@ -13,7 +13,7 @@ module.exports = NodeHelper.create({
 
     // Listener for IoT event
     MirrorMirror.onMessage(function(topic, payload) {
-      if (topic === MirrorMirror.TOPIC_IMAGES || topic === MirrorMirror.TOPIC_TEXT) {
+      if (topic === MirrorMirror.TOPIC_IMAGES || topic === MirrorMirror.TOPIC_TEXT || topic === MirrorMirror.TOPIC_VIDEO) {
         self.sendSocketNotification("RESULT", payload);
       } else if (topic === MirrorMirror.TOPIC_MODULE) {
         self.sendSocketNotification("MODULE", {

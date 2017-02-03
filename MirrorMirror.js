@@ -5,6 +5,7 @@ var app = {}
 app.TOPIC_IMAGES = "MagicMirror:new-images"
 app.TOPIC_TEXT = "MagicMirror:new-text"
 app.TOPIC_MODULE = "MagicMirror:change-module"
+app.TOPIC_VIDEO = "MagicMirror:new-video"
 
 // Setup our AWS IoT device and receive messages
 app.setup = function() {
@@ -31,6 +32,9 @@ app.setup = function() {
 
     app.device.subscribe(app.TOPIC_MODULE);
     console.log("Subscribed: " + app.TOPIC_MODULE);
+
+    app.device.subscribe(app.TOPIC_VIDEO);
+    console.log("Subscribed: " + app.TOPIC_VIDEO);
   });
 
   // Listeners

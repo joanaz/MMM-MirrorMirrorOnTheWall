@@ -68,10 +68,18 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
         wrapper.appendChild(row)
       }
 
+      if (this.result.videoId) {
+        var videoWrapper = document.createElement("div")
+        videoWrapper.className = "videoWrapper"
+        var iframe = document.createElement('iframe')
+        iframe.src = "https://www.youtube.com/embed/" + this.result.videoId + "?autoplay=1&controls=0&loop=1"
+        videoWrapper.appendChild(iframe)
+        wrapper.appendChild(videoWrapper)
+      }
+
       if (this.result.displayText) {
         var h1 = document.createElement('h1')
         h1.className = "animated fadeIn"
-
         var t = document.createTextNode(this.result.displayText)
         h1.appendChild(t)
         wrapper.appendChild(h1)
