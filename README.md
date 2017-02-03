@@ -72,7 +72,7 @@ The text in {} will be searched by Google Image Search API, and the returned ima
 
 ### Display video
 
-The text in {} will be searched by Youtube Data API, and the returned video will be displayed on Magic Mirror, with the text.
+The text in {} will be searched by Youtube Data API, and the returned video will be displayed on Magic Mirror, with the text. The Youtube video autoplays on loop.
 
 - `"show me how to {make slime}"`
 - `"show me video of {movie trailer}"`
