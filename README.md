@@ -2,23 +2,12 @@
 
 This is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror). It uses AWS IoT Device Gateway to receive commands from Alexa, then displays text/images/video on the Magic Mirror, and turn on/off Magic Mirror Modules according to the commands.
 
-You have to setup and install [MirrorMirrorOnTheWall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) before using this module.
+You have to setup Alexa, and install the [MirrorMirrorOnTheWall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) before using this module. Please follow the instructions in there before continuing here.
 
 
 ## AWS IoT Credentials
 
-You need to setup an AWS IoT Device, and save the credentials locally in this repo. You can use the same credentials for the above complementary Alexa Skill.
-
-1. login to AWS Management Console
-2. find __AWS IoT__ service
-3. click on __Connect__ at the left menu bar
-4. under _Configuring a device_, click on __Get Started__
-5. choose __Linux/OSX__ platform, and __Node.JS__
-6. give your device a name
-7. download credentials and run the start.sh script, which will generate a root-CA.crt
-8. create a folder called __certs__ inside the __src__ folder
-9. place all the credentials in the __certs__ folder
-10. open MirrorMirror.js, replace the __keyPath__, __certPath__, and __caPath__ to your own
+You should have the AWS IoT Device credentials from setting up the above Alexa skill. Copy the __certs__ folder from there and paste it inside this Magic Mirror Module folder. Next, open the MirrorMirror.js in this folder, and again, replace the __keyPath__, __certPath__, and __caPath__ to your own.
 
 
 ## Dependencies
@@ -41,7 +30,7 @@ The entry in config.js can look like the following. (NOTE: You only have to add 
 
 ## Usage
 
-If you have setup the [complementary Alexa skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) as instructed in its readme, you should be able to invoke it by saying `"Mirror Mirror On The Wall"`. Next you can say any of the following commands to trigger different actions on the Magic Mirror.
+If you have setup the [complementary Alexa skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) as instructed, you should be able to invoke it by saying `"Alexa, start On The Wall"`, or `"Mirror Mirror On The Wall"` if you changed your wake word to "Mirror Mirror". Next you can say any of the following commands to trigger different actions on the Magic Mirror.
 
 ### Display text
 
