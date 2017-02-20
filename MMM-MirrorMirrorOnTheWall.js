@@ -32,6 +32,9 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
       this.clear = false
       this.result = payload;
       this.updateDom()
+      this.show(1000, function() {
+        Log.log(this.name + ' is shown.');
+      });
     } else if (notification === "MODULE") {
       let self = this
       MM.getModules().enumerate(function(module) {

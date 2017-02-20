@@ -89,3 +89,37 @@ To turn off a Magic Mirror Module, say:
 - `"close {current weather}"`
 - `"turn off {compliments}"`
 - `"finish {smile test}"`
+
+*Note: To clear the text/images/video displayed by this module, you can simply turn this module off.*
+
+To turn on all Magic Mirror Module, say:
+- `"open all"`
+- `"open all modules"`
+- `"open every module"`
+- `"open each module"`
+- `"show all modules"`
+- `"show me all modules"`
+- `"show every module"`
+- `"show each module"`
+- `"turn on all"`
+- `"turn on all modules"`
+- `"turn on every module"`
+- `"turn on each module"`
+- `"start all"`
+- `"start all modules"`
+- `"start every module"`
+- `"start each module"`
+
+To turn off all Magic Mirror Module, say:
+- `"close all"`
+- `"close all modules"`
+- `"close every module"`
+- `"close each module"`
+- `"hide all"`
+- `"hide all modules"`
+- `"hide every module"`
+- `"hide each module"`
+- `"turn off all"`
+- `"turn off all modules"`
+- `"turn off every module"`
+- `"turn off each module"`
