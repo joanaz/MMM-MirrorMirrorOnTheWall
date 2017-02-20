@@ -13,6 +13,7 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
 
   start: function() {
     Log.info('Starting module: ' + this.name);
+    this.clear = false
     this.sendSocketNotification('ALEXA_START', {});
   },
 
@@ -28,26 +29,32 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
     Log.info(this.name + "received a socket notification:\n" + notification);
 
     if (notification === "RESULT") {
-
+      this.clear = false
       this.result = payload;
       this.updateDom()
-
     } else if (notification === "MODULE") {
-
+      let self = this
       MM.getModules().enumerate(function(module) {
-        if (module.name === payload.moduleName) {
+        if (module.name === payload.moduleName || payload.moduleName === "all_modules") {
           if (payload.turnOn) {
+            if (module.name === self.name) {
+              self.clear = false
+              self.updateDom();
+            }
             module.show(1000, function() {
               Log.log(module.name + ' is shown.');
             });
           } else {
+            if (module.name === self.name) {
+              self.clear = true
+              self.updateDom();
+            }
             module.hide(1000, function() {
               Log.log(module.name + ' is hidden.');
             });
           }
         }
       });
-
     }
   },
 
@@ -55,7 +62,7 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
     wrapper = document.createElement("div");
     wrapper.className = 'thin large bright';
 
-    if (this.result) {
+    if (this.result && !this.clear) {
       if (this.result.images) {
         var row = document.createElement("div")
         row.className = "row"
@@ -72,7 +79,7 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
         var videoWrapper = document.createElement("div")
         videoWrapper.className = "videoWrapper"
         var iframe = document.createElement('iframe')
-        iframe.src = "https://www.youtube.com/embed/" + this.result.videoId + "?autoplay=1&controls=0&loop=1"
+        iframe.src = "https://www.youtube.com/embed/" + this.result.videoId + "?autoplay=1&controls=0"
         videoWrapper.appendChild(iframe)
         wrapper.appendChild(videoWrapper)
       }

@@ -16,8 +16,13 @@ module.exports = NodeHelper.create({
       if (topic === MirrorMirror.TOPIC_IMAGES || topic === MirrorMirror.TOPIC_TEXT || topic === MirrorMirror.TOPIC_VIDEO) {
         self.sendSocketNotification("RESULT", payload);
       } else if (topic === MirrorMirror.TOPIC_MODULE) {
+        let moduleName = payload.moduleName
+        if (moduleName in ModuleNames) {
+          moduleName = ModuleNames[moduleName]
+        }
+
         self.sendSocketNotification("MODULE", {
-          moduleName: ModuleNames[payload.moduleName],
+          moduleName: moduleName,
           turnOn: payload.turnOn
         });
       }
