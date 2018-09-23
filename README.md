@@ -2,9 +2,7 @@
 
 This is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror). It uses AWS IoT Device Gateway to receive commands from Alexa, then displays text/images/video on the Magic Mirror, and turn on/off Magic Mirror Modules according to the commands.
 
-You have to setup Alexa, and install the [MirrorMirrorOnTheWall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) before using this module. 
-
-### Please follow the __[Instructions](https://joanaz.github.io/MirrorMirrorOnTheWallSkill/)__
+You have to setup Alexa, and install the [MirrorMirrorOnTheWall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) before using this module. Please follow the __[Instructions](https://joanaz.github.io/MirrorMirrorOnTheWallSkill/)__.
 
 ## Dependencies
 
