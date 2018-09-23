@@ -4,8 +4,7 @@ This is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror).
 
 You have to setup Alexa, and install the [MirrorMirrorOnTheWall Alexa Skill](https://github.com/joanaz/MirrorMirrorOnTheWallSkill) before using this module. 
 
-# [Instructions](https://joanaz.github.io/MirrorMirrorOnTheWallSkill/)
-
+### Please follow the __[Instructions](https://joanaz.github.io/MirrorMirrorOnTheWallSkill/)__
 
 ## Dependencies
 
